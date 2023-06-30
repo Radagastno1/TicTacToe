@@ -35,6 +35,7 @@
         {
             RenderField(player1, player2);
             PlayerChoosesSquare(player1, player2);
+            IsPlayerWinning(player1, player2);
         }
     }
 
@@ -128,6 +129,54 @@
             Console.WriteLine("key with only nr: " + keyWithOnlyNumber);
             int.TryParse(keyWithOnlyNumber, out squareNr);
             player.SquaresChosen.Add(squareNr);
+        }
+    }
+
+    private static void IsPlayerWinning(Player player1, Player player2)
+    {
+        if (
+            player1.SquaresChosen.Contains(1)
+                && player1.SquaresChosen.Contains(2)
+                && player1.SquaresChosen.Contains(3)
+            || player1.SquaresChosen.Contains(1)
+                && player1.SquaresChosen.Contains(4)
+                && player1.SquaresChosen.Contains(7)
+            || player1.SquaresChosen.Contains(1)
+                && player1.SquaresChosen.Contains(5)
+                && player1.SquaresChosen.Contains(9)
+            || player1.SquaresChosen.Contains(3)
+                && player1.SquaresChosen.Contains(6)
+                && player1.SquaresChosen.Contains(9)
+            || player1.SquaresChosen.Contains(7)
+                && player1.SquaresChosen.Contains(8)
+                && player1.SquaresChosen.Contains(9)
+        )
+        {
+            RenderField(player1, player2);
+            Console.WriteLine("Player 1 is a winner!");
+            Environment.Exit(0);
+        }
+        else if (
+            player2.SquaresChosen.Contains(1)
+                && player2.SquaresChosen.Contains(2)
+                && player2.SquaresChosen.Contains(3)
+            || player2.SquaresChosen.Contains(1)
+                && player2.SquaresChosen.Contains(4)
+                && player2.SquaresChosen.Contains(7)
+            || player2.SquaresChosen.Contains(1)
+                && player2.SquaresChosen.Contains(5)
+                && player2.SquaresChosen.Contains(9)
+            || player2.SquaresChosen.Contains(3)
+                && player2.SquaresChosen.Contains(6)
+                && player2.SquaresChosen.Contains(9)
+            || player2.SquaresChosen.Contains(7)
+                && player2.SquaresChosen.Contains(8)
+                && player2.SquaresChosen.Contains(9)
+        )
+        {
+            RenderField(player1, player2);
+            Console.WriteLine("Player 2 is a winner!");
+            Environment.Exit(0);
         }
     }
 }
