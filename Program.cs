@@ -2,6 +2,20 @@
 {
     public static string field;
 
+    public static Dictionary<ConsoleKey, int> keysAndNumbers =
+        new()
+        {
+            { ConsoleKey.D1, 1 },
+            { ConsoleKey.D2, 2 },
+            { ConsoleKey.D3, 3 },
+            { ConsoleKey.D4, 4 },
+            { ConsoleKey.D5, 5 },
+            { ConsoleKey.D6, 6 },
+            { ConsoleKey.D7, 7 },
+            { ConsoleKey.D8, 8 },
+            { ConsoleKey.D9, 9 }
+        };
+
     private static void Main(string[] args)
     {
         //starta spelet
@@ -10,15 +24,17 @@
 
     private static void StartGame()
     {
+        Player player1 = new();
+        player1.Symbol = "X";
+
+        Player player2 = new();
+        player2.Symbol = "O";
+
         while (true)
         {
-            Player player1 = new();
-            Player player2 = new();
-            player1.SquaresChosen.Add(1);
-            player1.Symbol = "X";
             RenderField(player1, player2);
-            Console.ReadLine();
-            break;
+            PlayerChoosesSquare(player1, player2);
+            // break;
         }
     }
 
@@ -80,5 +96,31 @@
         Console.WriteLine($"   {square7}  |   {square8}   |   {square9}  ");
     }
 
+    private static void PlayerChoosesSquare(Player player1, Player player2)
+    {
+        if (player1.SquaresChosen.Count == 0)
+        {
+            Console.WriteLine("Player 1 with symbol X begins. Please choose square (1-9).");
 
+            ConsoleKey keyChosen = Console.ReadKey().Key;
+
+            AddSquareNumberToPlayersList(player1, keyChosen);
+        }
+        // else if()
+    }
+
+    private static void AddSquareNumberToPlayersList(Player player, ConsoleKey keyChosen)
+    {
+        int squareNr = 0;
+        string keyAsString = string.Empty;
+
+        if (keysAndNumbers.Any(k => k.Key == keyChosen))
+        {
+            keyAsString = keyChosen.ToString();
+            string keyWithOnlyNumber = keyAsString[1].ToString();
+            Console.WriteLine("key with only nr: " + keyWithOnlyNumber);
+            int.TryParse(keyWithOnlyNumber, out squareNr);
+            player.SquaresChosen.Add(squareNr);
+        }
+    }
 }
