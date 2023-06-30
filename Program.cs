@@ -39,7 +39,7 @@ internal class Program
             Console.Clear();
             RenderField(player1, player2);
             PlayerChoosesSquare(player1, player2);
-            IsPlayerWinning(player1, player2);
+            CheckForWinningPlayer(player1, player2);
         }
     }
 
@@ -136,7 +136,7 @@ internal class Program
         }
     }
 
-    private static void IsPlayerWinning(Player player1, Player player2)
+    private static void CheckForWinningPlayer(Player player1, Player player2)
     {
         List<int> numbersToNine = new() { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
         List<int> playersCombinedNumbers = new() { };
@@ -159,7 +159,7 @@ internal class Program
             || player1.SquaresChosen.Contains(7)
                 && player1.SquaresChosen.Contains(8)
                 && player1.SquaresChosen.Contains(9)
-                || player1.SquaresChosen.Contains(3)
+            || player1.SquaresChosen.Contains(3)
                 && player1.SquaresChosen.Contains(5)
                 && player1.SquaresChosen.Contains(7)
         )
@@ -184,10 +184,9 @@ internal class Program
             || player2.SquaresChosen.Contains(7)
                 && player2.SquaresChosen.Contains(8)
                 && player2.SquaresChosen.Contains(9)
-                  || player2.SquaresChosen.Contains(3)
+            || player2.SquaresChosen.Contains(3)
                 && player2.SquaresChosen.Contains(5)
                 && player2.SquaresChosen.Contains(7)
-                
         )
         {
             RenderField(player1, player2);

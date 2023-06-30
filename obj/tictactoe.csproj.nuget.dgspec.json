@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\angel\\Documents\\Mina program\\KONSOLAPPAR\\tictactoe\\tictactoe.csproj": {}
+    "c:\\Users\\angel\\Documents\\Mina program\\KONSOLAPPAR\\tictactoe\\tictactoe.csproj": {}
   },
   "projects": {
-    "C:\\Users\\angel\\Documents\\Mina program\\KONSOLAPPAR\\tictactoe\\tictactoe.csproj": {
+    "c:\\Users\\angel\\Documents\\Mina program\\KONSOLAPPAR\\tictactoe\\tictactoe.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\angel\\Documents\\Mina program\\KONSOLAPPAR\\tictactoe\\tictactoe.csproj",
+        "projectUniqueName": "c:\\Users\\angel\\Documents\\Mina program\\KONSOLAPPAR\\tictactoe\\tictactoe.csproj",
         "projectName": "tictactoe",
-        "projectPath": "C:\\Users\\angel\\Documents\\Mina program\\KONSOLAPPAR\\tictactoe\\tictactoe.csproj",
+        "projectPath": "c:\\Users\\angel\\Documents\\Mina program\\KONSOLAPPAR\\tictactoe\\tictactoe.csproj",
         "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\angel\\Documents\\Mina program\\KONSOLAPPAR\\tictactoe\\obj\\",
+        "outputPath": "c:\\Users\\angel\\Documents\\Mina program\\KONSOLAPPAR\\tictactoe\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\angel\\AppData\\Roaming\\NuGet\\NuGet.Config",
