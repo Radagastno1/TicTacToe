@@ -3,8 +3,8 @@ using System.Collections;
 
 internal class Program
 {
-    public static string field;
-    public static int turn = 1;
+    static string field;
+    static int turn = 1;
 
     public static Dictionary<ConsoleKey, int> keysAndNumbers =
         new()
@@ -22,7 +22,6 @@ internal class Program
 
     private static void Main(string[] args)
     {
-        //starta spelet
         StartGame();
     }
 
