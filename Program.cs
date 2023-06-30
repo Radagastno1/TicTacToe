@@ -1,6 +1,7 @@
 ﻿internal class Program
 {
     public static string field;
+    public static int turn = 1;
 
     public static Dictionary<ConsoleKey, int> keysAndNumbers =
         new()
@@ -34,7 +35,6 @@
         {
             RenderField(player1, player2);
             PlayerChoosesSquare(player1, player2);
-            // break;
         }
     }
 
@@ -98,15 +98,22 @@
 
     private static void PlayerChoosesSquare(Player player1, Player player2)
     {
-        if (player1.SquaresChosen.Count == 0)
+        if (turn % 2 != 0)
         {
-            Console.WriteLine("Player 1 with symbol X begins. Please choose square (1-9).");
+            Console.WriteLine("Player 1 with symbol X, go! Please choose square (1-9).");
 
             ConsoleKey keyChosen = Console.ReadKey().Key;
 
             AddSquareNumberToPlayersList(player1, keyChosen);
         }
-        // else if()
+        else
+        {
+            Console.WriteLine("Player 2 with symbol O is up! Please choose square (1-9).");
+            ConsoleKey keyChosen = Console.ReadKey().Key;
+
+            AddSquareNumberToPlayersList(player2, keyChosen);
+        }
+        turn++;
     }
 
     private static void AddSquareNumberToPlayersList(Player player, ConsoleKey keyChosen)
