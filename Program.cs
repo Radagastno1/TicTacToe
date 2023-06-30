@@ -1,4 +1,7 @@
-﻿internal class Program
+﻿using System.Linq;
+using System.Collections;
+
+internal class Program
 {
     public static string field;
     public static int turn = 1;
@@ -33,6 +36,7 @@
 
         while (true)
         {
+            Console.Clear();
             RenderField(player1, player2);
             PlayerChoosesSquare(player1, player2);
             IsPlayerWinning(player1, player2);
@@ -134,6 +138,11 @@
 
     private static void IsPlayerWinning(Player player1, Player player2)
     {
+        List<int> numbersToNine = new() { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        List<int> playersCombinedNumbers = new() { };
+        playersCombinedNumbers.AddRange(player1.SquaresChosen);
+        playersCombinedNumbers.AddRange(player2.SquaresChosen);
+
         if (
             player1.SquaresChosen.Contains(1)
                 && player1.SquaresChosen.Contains(2)
@@ -150,6 +159,9 @@
             || player1.SquaresChosen.Contains(7)
                 && player1.SquaresChosen.Contains(8)
                 && player1.SquaresChosen.Contains(9)
+                || player1.SquaresChosen.Contains(3)
+                && player1.SquaresChosen.Contains(5)
+                && player1.SquaresChosen.Contains(7)
         )
         {
             RenderField(player1, player2);
@@ -172,10 +184,20 @@
             || player2.SquaresChosen.Contains(7)
                 && player2.SquaresChosen.Contains(8)
                 && player2.SquaresChosen.Contains(9)
+                  || player2.SquaresChosen.Contains(3)
+                && player2.SquaresChosen.Contains(5)
+                && player2.SquaresChosen.Contains(7)
+                
         )
         {
             RenderField(player1, player2);
             Console.WriteLine("Player 2 is a winner!");
+            Environment.Exit(0);
+        }
+        else if (playersCombinedNumbers.Count() == numbersToNine.Count())
+        {
+            RenderField(player1, player2);
+            Console.WriteLine("You both are losers!");
             Environment.Exit(0);
         }
     }
